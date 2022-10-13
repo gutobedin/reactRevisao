@@ -2,13 +2,13 @@ import axios from "axios"
 import { useState } from "react"
 import PredioForm from "./predioForm";
 
-const [predios, setPredios] = useState([])
-
-
 export default function Predio() {
+    const [predios, setPredios] = useState([])
+
+
+
     axios.get('http://localhost:3000/predio')
         .then(response => {
-            console.log(response)
             setPredios(response.data)
         })
         .catch(error => { console.log(error) });
@@ -27,6 +27,7 @@ export default function Predio() {
 
     const salvar = () => {
         console.log('Salvar ...');
+        console.log(predios.length)
         if (operacao === 'inserir') {
             predio.id = predios.length + 1
             setPredios([...predios, predio])
@@ -53,11 +54,11 @@ export default function Predio() {
 
     else return (
         <div>
-            <div class="d-flex justify-content-md-center p-2">
-                <button class="btn btn-primary btn-sm" onClick={inserir} >Inserir</button>
+            <div className="d-flex justify-content-md-center p-2">
+                <button className="btn btn-primary btn-sm" onClick={inserir} >Inserir</button>
             </div>
 
-            <table class="table table-striped table-bordered table-condensed table-hover">
+            <table className="table table-striped table-bordered table-condensed table-hover">
                 <thead>
                     <tr>
                         <th>Index</th>
@@ -77,8 +78,8 @@ export default function Predio() {
                             <td>{u.andares}</td>
                             <td>{u.rua}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm m-2">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
+                                <button className="btn btn-primary btn-sm m-2">Editar</button>
+                                <button className="btn btn-danger btn-sm">Excluir</button>
                             </td>
                         </tr>
                     ))) : (
