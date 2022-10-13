@@ -1,0 +1,15 @@
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(132, 132, 132);
+    color: white;
+    
+}
+
+.link {
+    display: flex;
+    gap: 1rem;
+    flex: 2;
+
+}
